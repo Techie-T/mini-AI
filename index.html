@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ChatGpt group project</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <!--=====LINKED CSS=====-->
+    <link rel="stylesheet" href="style.css" />
+    <!--=====LINKED JS=====-->
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <!--=====CHAT=====-->
+    <div class="chat-container"></div>
+
+    <!--TYPING CONTAINER-->
+    <div class="typing-container">
+      <div class="typing-content">
+        <div class="typing-textarea">
+          <textarea
+            id="chat-input"
+            placeholder="Enter prompt here"
+            required
+          ></textarea>
+          <span id="send-btn" class="material-symbols-rounded">send</span>
+        </div>
+
+        <!--TYPING CONTROL-->
+        <div class="typing-controls">
+          <span id="theme-btn" class="material-symbols-rounded">
+            light_mode
+          </span>
+          <span id="delete-btn" class="material-symbols-rounded"> delete </span>
+        </div>
+      </div>
+    </div>
+    <!--DARKMODE ICON
+    <span class="material-symbols-rounded"> dark_mode </span>-->
+  </body>
+</html>
