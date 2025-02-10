@@ -4,7 +4,6 @@ const sendButton = document.querySelector("#send-btn");
 const chatContainer = document.querySelector(".chat-container");
 const themeButton = document.querySelector("#theme-btn");
 const deleteButton = document.querySelector("#delete-btn");
-//const initialHeight = chatInput.scrollHeight;
 
 let userText = null;
 
@@ -112,9 +111,6 @@ const handleOutgoingChat = () => {
   userText = chatInput.value.trim();
   if (!userText) return;
 
-  // chatInput.value = "";
-  // chatInput.style.height = `${initialHeight}px`;
-
   const html = `<div class="chat-content">
           <div class="chat-details">
             <img src="img/user.avif" alt="User Image" />
@@ -154,12 +150,5 @@ chatInput.addEventListener("input", () => {
   chatInput.style.height = `${initialHeight}px`;
   chatInput.style.height = `${chatInput.scrollHeight}px`;
 });
-
-//chatInput.addEventListener("keydown", (e) => {
-//if (e.key === "Enter" && !e.shiftKey && window.innerWidth > 800) {
-//e.preventDefault();
-//handleOutgoingChat();
-//}
-//});
 
 sendButton.addEventListener("click", handleOutgoingChat);
