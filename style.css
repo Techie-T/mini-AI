@@ -71,6 +71,9 @@ body {
   font-size: 0.8rem;
   padding: 0 50px 0 25px;
 }
+.chat .chat-details p.error {
+  color: #e55865;
+}
 .chat .chat-details img {
   width: 35px;
   height: 35px;
@@ -83,7 +86,7 @@ body {
   color: var(--icon-color);
   visibility: hidden;
 }
-.chat:hover .chat-content span {
+.chat:hover .chat-content:not(:has(.typing-animation, .error)) span {
   visibility: visible;
 }
 .chat .chat-content {
@@ -152,6 +155,8 @@ span.material-symbols-rounded {
   width: 100%;
   height: 55px;
   border: none;
+  max-height: 250px;
+  overflow-y: auto;
   resize: none;
   font-size: 1rem;
   padding: 15px 45px 15px 20px;
@@ -189,4 +194,22 @@ span.material-symbols-rounded {
 }
 .typing-textarea textarea::placeholder {
   color: var(--placeholder-color);
+}
+/*DEFAULT TEXT STYLING*/
+.default-text {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  height: 70vh;
+  padding: 0 10px;
+  text-align: center;
+  color: var(--text-color);
+}
+.default-text h1 {
+  font-size: 3rem;
+}
+.default-text p {
+  margin-top: 10px;
+  font-size: 1.1rem;
 }
