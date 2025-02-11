@@ -4,11 +4,11 @@ const sendButton = document.querySelector("#send-btn");
 const chatContainer = document.querySelector(".chat-container");
 const themeButton = document.querySelector("#theme-btn");
 const deleteButton = document.querySelector("#delete-btn");
-
+const initialHeight = chatInput.scrollHeight;
 let userText = null;
 
 //ADD an API_KEY
-const API_KEY = "";
+const API_KEY = "AIzaSyDiwziUd6qusSK6mQIt48huSR1L1AyXOi8";
 
 //get data from local storage
 const loadDataFromLocalstorage = () => {
@@ -41,32 +41,34 @@ const createElement = (html, className) => {
 
 //get chat response
 const getChatRepsonse = async (incomingChatDiv) => {
-  const API_URL = "https://api.openai.com/v1/completions";
+  const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`;
   const pElement = document.createElement("p");
 
   const requestOptions = {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${API_KEY}`,
     },
     body: JSON.stringify({
-      model: "text-davinci-003",
-      prompt: userText,
-      max_tokens: 2048,
-      temperature: 0.2,
-      n: 1,
-      stop: null,
+      contents: [
+        {
+          parts: [{ text: userText.message }],
+        },
+      ],
     }),
   };
 
   try {
-    const response = await (await fetch(API_URL, requestOptions)).json();
-    pElement.textContent = response.choices[0].text.trim();
+    const response = await fetch(API_URL, requestOptions);
+    const data = await response.json();
+    if (!response.ok) throw new Error(data.error.message);
+    console.log(data);
+    //pElement.textContent = response.choices[0].text.trim();
   } catch (error) {
-    pElement.classList.add("error");
-    pElement.textContent =
-      "Oops! Something went wrong while retrieving the response, please try again";
+    console.log(error);
+    //pElement.classList.add("error");
+    //pElement.textContent =
+    //"Oops! Something went wrong while retrieving the response, please try again";
   }
 
   //remove typing anaimation when text is dropped
