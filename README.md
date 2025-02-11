@@ -37,7 +37,7 @@ AI and USER chat
 ### Links
 
 - Solution URL: [(https://github.com/Techie-T/mini-AI.git)] (Github Repository)
-- Live Site URL: [(https://harmonious-crisp-96d27b.netlify.app/)] (Netlify)
+- Live Site URL: [(https://dainty-melomakarona-04b87a.netlify.app/)] (Netlify)
 
 ## My process
 
