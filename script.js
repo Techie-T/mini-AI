@@ -40,7 +40,7 @@ const createElement = (html, className) => {
 };
 
 //get chat response
-const getChatRepsonse = async (incomingChatDiv) => {
+const getChatResponse = async (incomingChatDiv) => {
   const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`;
   const pElement = document.createElement("p");
 
@@ -71,7 +71,7 @@ const getChatRepsonse = async (incomingChatDiv) => {
     //"Oops! Something went wrong while retrieving the response, please try again";
   }
 
-  //remove typing anaimation when text is dropped
+  //remove typing animation when text is dropped
   incomingChatDiv.querySelector(".typing-animation").remove();
   incomingChatDiv.querySelector(".chat-details").appendChild(pElement);
   chatContainer.scrollTo(0, chatContainer.scrollHeight);
@@ -105,7 +105,7 @@ const showTypingAnimation = () => {
   const incomingChatDiv = createElement(html, "incoming");
   chatContainer.appendChild(incomingChatDiv);
   chatContainer.scrollTo(0, chatContainer.scrollHeight);
-  getChatRepsonse(incomingChatDiv);
+  getChatResponse(incomingChatDiv);
 };
 
 //HANDLE OUTGOING CHAT
